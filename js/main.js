@@ -4,14 +4,14 @@
 function onYouTubeIframeAPIReady() {
     // Créer un lecteur
     var player = new YT.Player('player', {
-        height: '0', // Pour masquer le lecteur
-        width: '0', // Pour masquer le lecteur
+        height: '10%', // Pour masquer le lecteur
+        width: '100%', // Pour masquer le lecteur
         playerVars: {
             'autoplay': 1, // Lecture automatique
-            'controls': 0, // Affichage des contrôles
+            'controls': 1, // Affichage des contrôles
             'loop': 1, // Lecture en boucle
             'listType': 'playlist', // Type de liste (playlist)
-            'list': 'YOUR_PLAYLIST_ID' // ID de la playlist
+            'list': 'PLd7w5mVixNkLfuUtGlzqGaYUp5kkRJQxO' // ID de la playlist
         },
         events: {
             'onReady': onPlayerReady
@@ -22,7 +22,7 @@ function onYouTubeIframeAPIReady() {
 // Fonction appelée lorsque le lecteur est prêt
 function onPlayerReady(event) {
     // Lecture de la bande son de la playlist
-    event.target.setVolume(100); // Réglez le volume à 100 (ou ajustez selon vos préférences)
+    event.target.setVolume(25); // Réglez le volume à 100 (ou ajustez selon vos préférences)
     event.target.playVideo(); // Commencez à lire la vidéo
 }
 
