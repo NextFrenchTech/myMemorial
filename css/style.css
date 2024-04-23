@@ -41,6 +41,10 @@ audio {
     margin-bottom: 85px;
 }
 
+#player {
+    margin-bottom: 85px;
+}
+
 @media (min-width: 999px) {
-    
+
 }
