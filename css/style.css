@@ -37,7 +37,7 @@ h1, h2 {
 
 audio {
     width: 100vw;
-    margin-bottom: 100px;
+    margin-bottom: 250px;
 }
 
 @media (min-width: 999px) {
