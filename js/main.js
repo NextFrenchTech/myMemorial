@@ -1,34 +1,4 @@
-/*youtubePlaylist*/
-
-// Fonction appelée lorsque l'API YouTube est prête
-function onYouTubeIframeAPIReady() {
-    // Créer un lecteur
-    var player = new YT.Player('player', {
-        height: '0', // Pour masquer le lecteur
-        width: '0', // Pour masquer le lecteur
-        playerVars: {
-            'autoplay': 1, // Lecture automatique
-            'loop': 1, // Lecture en boucle
-            'playsinline': 1, // Lecture inline (pour iOS)
-            'showinfo': 0, // Information sur la vidéo cachées
-            'listType': 'playlist', // Type de liste (playlist)
-            'list': 'YOUR_PLAYLIST_ID' // ID de la playlist
-        },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
-
-// Fonction appelée lorsque le lecteur est prêt
-function onPlayerReady(event) {
-    // Lecture de la bande son de la playlist
-    event.target.setVolume(25); // Réglez le volume à 100 (ou ajustez selon vos préférences)
-    event.target.playVideo(); // Commencez à lire la vidéo
-}
-
 /*audioPlaylist*/
-
 
 function playNext() {
     var audio = document.getElementById('audio');
@@ -55,6 +25,34 @@ function playNext() {
 // Lancer la première piste audio
 playNext();
 
+/*youtubePlaylist*/
+
+/*// Fonction appelée lorsque l'API YouTube est prête
+function onYouTubeIframeAPIReady() {
+    // Créer un lecteur
+    var player = new YT.Player('player', {
+        height: '0', // Pour masquer le lecteur
+        width: '0', // Pour masquer le lecteur
+        playerVars: {
+            'autoplay': 1, // Lecture automatique
+            'loop': 1, // Lecture en boucle
+            'playsinline': 1, // Lecture inline (pour iOS)
+            'showinfo': 0, // Information sur la vidéo cachées
+            'listType': 'playlist', // Type de liste (playlist)
+            'list': 'YOUR_PLAYLIST_ID' // ID de la playlist
+        },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+// Fonction appelée lorsque le lecteur est prêt
+function onPlayerReady(event) {
+    // Lecture de la bande son de la playlist
+    event.target.setVolume(25); // Réglez le volume à 100 (ou ajustez selon vos préférences)
+    event.target.playVideo(); // Commencez à lire la vidéo
+}*/
 
 /*visualPlaylist*/
 

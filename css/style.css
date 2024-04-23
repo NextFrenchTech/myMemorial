@@ -40,15 +40,19 @@ audio {
     margin-bottom: 85px;
 }
 
-#player {
-    margin-bottom: 85px;
-    opacity: 0.5;
-}
-
 @media (min-width: 999px) {
     audio {
         display: none;
     }
+}
+
+/*customPlayer*/
+
+/*#player {
+    margin-bottom: 85px;
+    opacity: 0.5;
+}
+@media (min-width: 999px) {
     #player {
         margin-bottom: 0px;
     }
