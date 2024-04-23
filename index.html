@@ -11,6 +11,11 @@
 <body>
     <h1>À la Mémoire de </h1>
     <h2>Prénom Nom (Date/Date)</h2>
+    
+    <audio id="audio" controls autoplay muted playsinline onended="playNext()">
+        <source src="assets/audio/default.mp3" type="audio/mpeg">
+    </audio>    
+
     <svg class="stage" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
         <g class="grid"></g>
         <g class="hero">
@@ -27,10 +32,6 @@
         <text fill="#fff" font-size="13.5" y="15.5" text-anchor="middle"></text>
         <path d="M0,20 30,20 15,35z"/>
     </svg>
-
-    <audio id="audio" controls autoplay muted playsinline onended="playNext()">
-        <source src="assets/audio/default.mp3" type="audio/mpeg">
-    </audio>    
     
     <div id="player"></div>
 
