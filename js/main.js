@@ -9,6 +9,8 @@ function onYouTubeIframeAPIReady() {
         playerVars: {
             'autoplay': 1, // Lecture automatique
             'controls': 1, // Affichage des contrôles
+            'playsinline': 1, // Lecture en ligne (pour iOS)
+            'showinfo':   0, // Masquage de la barre d'information
             'loop': 1, // Lecture en boucle
             'listType': 'playlist', // Type de liste (playlist)
             'list': 'PLd7w5mVixNkLfuUtGlzqGaYUp5kkRJQxO' // ID de la playlist

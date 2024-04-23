@@ -43,8 +43,14 @@ audio {
 
 #player {
     margin-bottom: 85px;
+    opacity: 0.5;
 }
 
 @media (min-width: 999px) {
-
+    audio {
+        display: none;
+    }
+    #player {
+        margin-bottom: 0px;
+    }
 }
