@@ -4,16 +4,15 @@
 function onYouTubeIframeAPIReady() {
     // Créer un lecteur
     var player = new YT.Player('player', {
-        height: '10%', // Pour masquer le lecteur
-        width: '100%', // Pour masquer le lecteur
+        height: '0', // Pour masquer le lecteur
+        width: '0', // Pour masquer le lecteur
         playerVars: {
             'autoplay': 1, // Lecture automatique
-            'controls': 1, // Affichage des contrôles
-            'playsinline': 1, // Lecture en ligne (pour iOS)
-            'showinfo':   0, // Masquage de la barre d'information
             'loop': 1, // Lecture en boucle
+            'playsinline': 1, // Lecture inline (pour iOS)
+            'showinfo': 0, // Information sur la vidéo cachées
             'listType': 'playlist', // Type de liste (playlist)
-            'list': 'PLd7w5mVixNkLfuUtGlzqGaYUp5kkRJQxO' // ID de la playlist
+            'list': 'YOUR_PLAYLIST_ID' // ID de la playlist
         },
         events: {
             'onReady': onPlayerReady
