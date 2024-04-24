@@ -64,6 +64,7 @@ h1, h2 {
     overflow: hidden;
     display: grid;
     grid-template-rows: 6px auto;
+    margin-bottom: 100px;
 }
 
 .audio-player .timeline {
