@@ -54,7 +54,6 @@ h1, h2 {
     width: 100vw;
     background: black;
     box-shadow: 0 0 20px 0 black;
-    font-family: arial;
     color: white;
     font-size: 0.75em;
     overflow: hidden;
@@ -97,8 +96,8 @@ h1, h2 {
     left: 0;
     height: 0;
     width: 0;
-    border: 7px solid black;
-    border-left: 13px solid white;
+    border: 6px solid black;
+    border-left: 12px solid white;
 }
 
 .audio-player .controls .toggle-play.play:hover {
@@ -125,7 +124,7 @@ h1, h2 {
 .audio-player .controls .toggle-play.pause:after {
     position: absolute;
     top: 0;
-    right: 8px;
+    right: 9px;
     background: white;
     content: "";
     height: 15px;
@@ -151,7 +150,7 @@ h1, h2 {
 }
 
 .audio-player .controls .volume-container .volume-button {
-    height: 26px;
+    height: 25px;
     display: flex;
     align-items: center;
 }
@@ -174,12 +173,12 @@ h1, h2 {
 .audio-player .controls .volume-container .volume-slider .volume-percentage {
     background: red;
     height: 100%;
-    width: 75%;
+    width: 25%;
 }
 
 .audio-player .controls .volume-container:hover .volume-slider {
     left: -123px;
-    width: 120px;
+    width: 123px;
 }
 
 @media (min-width: 768px) {
