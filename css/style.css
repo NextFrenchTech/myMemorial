@@ -55,7 +55,7 @@ h1, h2 {
 
 .audio-player {
     height: 50px;
-    width: 25vw;
+    width: 100vw;
     background: black;
     box-shadow: 0 0 20px 0 black;
     font-family: arial;
