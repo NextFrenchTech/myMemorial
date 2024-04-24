@@ -19,7 +19,7 @@ audio.addEventListener(
     audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
       audio.duration
     );
-    audio.volume = .75;
+    audio.volume = .25;
   },
   false
 );
