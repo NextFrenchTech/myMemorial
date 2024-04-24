@@ -6,6 +6,7 @@
 // - Be able to grab a custom title instead of "Music Song"
 // - Hover over sliders to see preview of timestamp/volume change
 
+
 /*customControls*/
 
 const audioPlayer = document.querySelector(".audio-player");
@@ -92,6 +93,7 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
+
 
 /*autoSwitch*/
 

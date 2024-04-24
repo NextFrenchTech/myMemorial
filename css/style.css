@@ -35,10 +35,6 @@ h1, h2 {
     padding: 0;
 }
 
-@media (min-width: 999px) {
-
-}
-
 /*customPlayer*/
 
 /*#player {
@@ -184,4 +180,10 @@ h1, h2 {
 .audio-player .controls .volume-container:hover .volume-slider {
     left: -123px;
     width: 120px;
+}
+
+@media (min-width: 768px) {
+    .audio-player {
+        display: none;
+    }
 }
