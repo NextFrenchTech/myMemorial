@@ -28,7 +28,7 @@ svg {
 }
 
 h1, h2 {
-    color: white;
+    color: whitesmoke;
     font-size: 100%;
     margin: 10px 0;
     padding: 0;
@@ -53,7 +53,7 @@ h1, h2 {
     width: 100vw;
     background: black;
     box-shadow: 0 0 20px 0 black;
-    color: white;
+    color: whitesmoke;
     font-size: 0.75em;
     overflow: hidden;
     display: grid;
@@ -70,7 +70,7 @@ h1, h2 {
 }
 
 .audio-player .timeline .progress {
-    background: white;
+    background: whitesmoke;
     width: 0%;
     height: 100%;
     transition: 0.25s;
@@ -96,7 +96,7 @@ h1, h2 {
     height: 0;
     width: 0;
     border: 9px solid black;
-    border-left: 12px solid white;
+    border-left: 12px solid whitesmoke;
 }
 
 .audio-player .controls .toggle-play.play:hover {
@@ -114,7 +114,7 @@ h1, h2 {
     position: absolute;
     top: 0;
     left: 0px;
-    background: white;
+    background: whitesmoke;
     content: "";
     height: 15px;
     width: 3px;
@@ -124,7 +124,7 @@ h1, h2 {
     position: absolute;
     top: 0;
     right: 9px;
-    background: white;
+    background: whitesmoke;
     content: "";
     height: 15px;
     width: 3px;
@@ -164,7 +164,7 @@ h1, h2 {
     z-index: -1;
     width: 0;
     height: 15px;
-    background: white;
+    background: whitesmokesmoke;
     box-shadow: 0 0 20px black;
     transition: 0.25s;
 }
