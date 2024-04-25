@@ -34,6 +34,15 @@ h1, h2 {
     padding: 0;
 }
 
+.mentionsLegales {
+    width: 100vw;
+    margin-right: 5%;
+    display: flex;
+    justify-content: right;
+    color: whitesmoke;
+    font-size: 50%;
+}
+
 /*customPlayer*/
 
 /*#player {
@@ -164,7 +173,7 @@ h1, h2 {
     z-index: -1;
     width: 0;
     height: 15px;
-    background: whitesmokesmoke;
+    background: whitesmoke;
     box-shadow: 0 0 20px black;
     transition: 0.25s;
 }
@@ -184,6 +193,9 @@ h1, h2 {
     .audio-player {
         margin-bottom: 0px;
         width: 50%;
+    }
+    .mentionsLegales {
+        margin-right: 51%;
     }
 }
 
