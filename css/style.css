@@ -80,7 +80,7 @@ h1, h2 {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    padding: 0 20px;
+    padding: 0 20px 0 25px;
 }
 
 .audio-player .controls > * {
@@ -95,7 +95,7 @@ h1, h2 {
     left: 0;
     height: 0;
     width: 0;
-    border: 6px solid black;
+    border: 9px solid black;
     border-left: 12px solid white;
 }
 
@@ -177,11 +177,12 @@ h1, h2 {
 
 .audio-player .controls .volume-container:hover .volume-slider {
     left: -123px;
-    width: 123px;
+    width: 120px;
 }
 
 @media (min-width: 768px) {
     .audio-player {
-        display: none;
+        margin-bottom: 0px;
+        width: 50%;
     }
 }
