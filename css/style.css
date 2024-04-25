@@ -36,6 +36,8 @@ svg {
 
 .mentionsLegales {
     width: 100vw;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
     margin-right: 5%;
     display: flex;
     justify-content: right;
@@ -195,10 +197,10 @@ svg {
         width: 50%;
     }
     .mentionsLegales {
-        margin-top: 1%;
+        margin-top: 0.75%;
+        margin-bottom: 0.75%;
         margin-right: 49%;
         font-size: 0.75rem;
-
     }
 }
 
