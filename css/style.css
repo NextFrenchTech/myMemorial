@@ -40,7 +40,7 @@ svg {
     display: flex;
     justify-content: right;
     color: whitesmoke;
-    font-size: 50%;
+    font-size: 0.50rem;
 }
 
 /*customPlayer*/
@@ -195,7 +195,9 @@ svg {
         width: 50%;
     }
     .mentionsLegales {
-        margin-right: 51%;
+        margin-right: 49%;
+        font-size: 0.75rem;
+
     }
 }
 
