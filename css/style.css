@@ -180,14 +180,14 @@ h1, h2 {
     width: 120px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .audio-player {
         margin-bottom: 0px;
         width: 50%;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 835px) {
     .volume-slider {
         display: none;
     }
