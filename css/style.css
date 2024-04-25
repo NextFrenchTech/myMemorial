@@ -67,7 +67,7 @@ svg {
     overflow: hidden;
     display: grid;
     grid-template-rows: 6px auto;
-    margin-bottom: 85px;
+    margin-bottom: 80px;
 }
 
 .audio-player .timeline {
