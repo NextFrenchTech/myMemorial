@@ -191,9 +191,8 @@ svg {
     width: 120px;
 }
 
-.download-link {
+.download-icon {
     color: whitesmoke;
-    text-decoration: none;
     font-size: 20px;
     margin-top: 5px;
 }
