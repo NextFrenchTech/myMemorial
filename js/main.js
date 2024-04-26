@@ -123,6 +123,20 @@ function playNext() {
 playNext();
 
 
+/*downloadActive*/
+
+// Récupérer tous les éléments audio de votre page
+const audioElements = document.querySelectorAll('audio');
+const downloadLink = document.querySelector('.download-link');
+
+// Ajouter un gestionnaire d'événement pour chaque élément audio
+audioElements.forEach(audio => {
+    audio.addEventListener('play', () => {
+        const audioSource = audio.src;
+        downloadLink.href = audioSource;
+    });
+});
+
 
 /*youtubePlaylist*/
 

@@ -91,7 +91,7 @@ svg {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    padding: 0 15px 0 25px;
+    padding: 0 25px;
 }
 
 .audio-player .controls > * {
@@ -190,6 +190,13 @@ svg {
     left: -123px;
     width: 120px;
 }
+
+.download-link {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+/*responsive*/
 
 @media (min-width: 769px) {
     .audio-player {
