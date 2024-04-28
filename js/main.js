@@ -1,22 +1,3 @@
-// Fonction pour détecter si l'appareil est mobile
-function isMobileDevice() {
-  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-}
-
-// Fonction pour déclencher la lecture automatique
-function autoplayAudio() {
-  var audio = document.getElementById("audio");
-  if (audio && isMobileDevice()) {
-      audio.play();
-  }
-}
-
-// Appel de la fonction au chargement de la page
-window.onload = function() {
-  autoplayAudio();
-};
-
-
 /*audioPlaylist*/
 
 // Possible improvements:
@@ -112,6 +93,22 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
+
+
+/*autoPlay*/
+var audioPlayed = false; // Variable pour suivre si l'audio a déjà été lancé
+
+// Fonction pour déclencher la lecture audio
+function playAudio() {
+    var audio = document.getElementById("audio");
+    if (audio && !audioPlayed) {
+        audio.play(); // Lancer la lecture audio
+        audioPlayed = true; // Mettre à jour le statut de lecture
+    }
+}
+
+// Ajouter un événement tactile pour détecter la première interaction de l'utilisateur
+document.body.addEventListener('touchstart', playAudio);
 
 
 /*autoSwitch*/
