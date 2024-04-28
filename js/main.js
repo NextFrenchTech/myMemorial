@@ -1,3 +1,22 @@
+// Fonction pour détecter si l'appareil est mobile
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
+// Fonction pour déclencher la lecture automatique
+function autoplayAudio() {
+  var audio = document.getElementById("audio");
+  if (audio && isMobileDevice()) {
+      audio.play();
+  }
+}
+
+// Appel de la fonction au chargement de la page
+window.onload = function() {
+  autoplayAudio();
+};
+
+
 /*audioPlaylist*/
 
 // Possible improvements:
@@ -223,7 +242,7 @@ function makePt(x, y) {
     // Événements de la souris sur l'image
     img.onpointerenter = (e) => {
         gsap.to('.tip', { duration: 0.3, ease: 'power3', scale: 1 }); // Animation de l'infobulle lors du survol
-        gsap.set('.tip text', { innerHTML: 'Image ' + img.id.substring(3) }); // Affichage du numéro de l'image dans l'infobulle
+        gsap.set('.tip text', { innerHTML: 'Souvenir ' + img.id.substring(3) }); // Affichage du numéro de l'image dans l'infobulle
     };
     img.onpointerleave = (e) => {
         gsap.to('.tip', { duration: 0.3, ease: 'power3.inOut', scale: 0 }); // Animation de l'infobulle lors du départ
