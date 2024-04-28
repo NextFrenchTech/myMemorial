@@ -202,7 +202,7 @@ svg {
     margin-top: 5px;
 }
 
-/*responsiveMobile/Tablet*/
+/*responsiveDesktop*/
 
 @media (min-width: 769px) {
     .audio-player {
@@ -220,10 +220,13 @@ svg {
     }
 }
 
-/*responsiveDesktop*/
+/*responsiveMobile/Tablet*/
 
 @media (max-width: 835px) {
     .volume-slider {
+        display: none;
+    }
+    .tip {
         display: none;
     }
 }
