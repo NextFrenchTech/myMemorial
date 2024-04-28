@@ -1,6 +1,7 @@
 /*audioPlaylist*/
 
 /*autoPlayMobile/Tablet*/
+
 var audioPlayed = false; // Variable pour suivre si l'audio a déjà été lancé
 
 // Fonction pour déclencher la lecture audio
@@ -16,13 +17,33 @@ function playAudio() {
 document.body.addEventListener('touchstart', playAudio);
 
 
-/*customControls*/
-// Possible improvements:
-// - Change timeline and volume slider into input sliders, reskinned
-// - Change into Vue or React component
-// - Be able to grab a custom title instead of "Music Song"
-// - Hover over sliders to see preview of timestamp/volume change
+/*customName*/
 
+const audio = document.getElementById("audio");
+
+// Mettre à jour le titre en cours de lecture
+function updateCurrentAudioTitle() {
+    const audioSrc = audio.currentSrc; // Obtenez l'URL complète du fichier audio actuel
+    const fileName = audioSrc.split('/').pop(); // Récupérez le nom du fichier à partir de l'URL
+    const title = fileName.replace(/\.[^/.]+$/, ""); // Retirez l'extension du fichier
+
+    const nameElement = document.querySelector(".name"); // Sélectionnez l'élément avec la classe "name"
+    if (nameElement && title) {
+        nameElement.textContent = title; // Mettez à jour le contenu de l'élément avec le titre
+    }
+}
+
+// Événement lorsque le chargement de la piste audio est terminé
+audio.addEventListener("loadeddata", updateCurrentAudioTitle);
+
+// Événement lorsque la piste audio change
+audio.addEventListener("ended", updateCurrentAudioTitle);
+
+// Lorsque la page est chargée, mettez à jour le titre de l'audio en cours de lecture
+updateCurrentAudioTitle();
+
+
+/*customControls*/
 
 const audioPlayer = document.querySelector(".audio-player");
 
@@ -31,15 +52,16 @@ console.dir(audio);
 audio.addEventListener(
   "loadeddata",
   () => {
+    // Met à jour la durée totale de l'audio lorsqu'il est chargé
     audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
       audio.duration
     );
-    audio.volume = 0.25;
+    audio.volume = 0.25; // Réglage initial du volume à 25%
   },
   false
 );
 
-//click on timeline to skip around
+// Cliquez sur la barre de temps pour avancer/reculer
 const timeline = audioPlayer.querySelector(".timeline");
 timeline.addEventListener("click", e => {
   const timelineWidth = window.getComputedStyle(timeline).width;
@@ -47,7 +69,7 @@ timeline.addEventListener("click", e => {
   audio.currentTime = timeToSeek;
 }, false);
 
-//click volume slider to change volume
+// Cliquez sur le curseur de volume pour changer le volume
 const volumeSlider = audioPlayer.querySelector(".controls .volume-slider");
 volumeSlider.addEventListener('click', e => {
   const sliderWidth = window.getComputedStyle(volumeSlider).width;
@@ -56,7 +78,7 @@ volumeSlider.addEventListener('click', e => {
   audioPlayer.querySelector(".controls .volume-percentage").style.width = newVolume * 100 + '%';
 }, false)
 
-//check audio percentage and update time accordingly
+// Vérifie le pourcentage de l'audio et met à jour le temps en conséquence
 setInterval(() => {
   const progressBar = audioPlayer.querySelector(".progress");
   progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
@@ -65,7 +87,7 @@ setInterval(() => {
   );
 }, 500);
 
-//toggle between playing and pausing on button click
+// Basculer entre la lecture et la pause lorsque le bouton est cliqué
 const playBtn = audioPlayer.querySelector(".controls .toggle-play");
 playBtn.addEventListener(
   "click",
@@ -83,6 +105,7 @@ playBtn.addEventListener(
   false
 );
 
+// Cliquez sur le bouton de volume pour activer/désactiver le son
 audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
   const volumeEl = audioPlayer.querySelector(".volume-container .volume");
   audio.muted = !audio.muted;
@@ -95,7 +118,7 @@ audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
   }
 });
 
-//turn 1 seconds into 0:01
+// Convertir 1 seconde en format 0:01
 function getTimeCodeFromNum(num) {
   let seconds = parseInt(num);
   let minutes = parseInt(seconds / 60);
