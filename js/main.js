@@ -1,7 +1,19 @@
 /*audioPlaylist*/
 
 /*autoPlayMobile/Tablet*/
+var audioPlayed = false; // Variable pour suivre si l'audio a déjà été lancé
 
+// Fonction pour déclencher la lecture audio
+function playAudio() {
+    var audio = document.getElementById("audio");
+    if (audio && !audioPlayed) {
+        audio.play(); // Lancer la lecture audio
+        audioPlayed = true; // Mettre à jour le statut de lecture
+    }
+}
+
+// Ajouter un événement tactile pour détecter la première interaction de l'utilisateur
+document.body.addEventListener('touchstart', playAudio);
 
 
 /*customControls*/
