@@ -1,13 +1,16 @@
 /*audioPlaylist*/
 
+/*autoPlayMobile/Tablet*/
+
+
+
+/*customControls*/
 // Possible improvements:
 // - Change timeline and volume slider into input sliders, reskinned
 // - Change into Vue or React component
 // - Be able to grab a custom title instead of "Music Song"
 // - Hover over sliders to see preview of timestamp/volume change
 
-
-/*customControls*/
 
 const audioPlayer = document.querySelector(".audio-player");
 
@@ -93,22 +96,6 @@ function getTimeCodeFromNum(num) {
     seconds % 60
   ).padStart(2, 0)}`;
 }
-
-
-/*autoPlay*/
-var audioPlayed = false; // Variable pour suivre si l'audio a déjà été lancé
-
-// Fonction pour déclencher la lecture audio
-function playAudio() {
-    var audio = document.getElementById("audio");
-    if (audio && !audioPlayed) {
-        audio.play(); // Lancer la lecture audio
-        audioPlayed = true; // Mettre à jour le statut de lecture
-    }
-}
-
-// Ajouter un événement tactile pour détecter la première interaction de l'utilisateur
-document.body.addEventListener('touchstart', playAudio);
 
 
 /*autoSwitch*/
