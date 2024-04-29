@@ -49,6 +49,44 @@ svg {
     margin: 0 5vw;
     text-align: justify;
 }
+    
+#download-btn {
+    display: none;
+    border: none;
+    background: black;
+    color: whitesmoke;
+    font-family: inherit;
+    text-align: center;
+    font-size: 12px;
+    width: 10em;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+   
+#download-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+}
+
+#download-btn span:after {
+    content: 'ce Souvenir';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.7s;
+}
+
+#download-btn:hover span {
+    padding-right: 5em;
+}
+
+#download-btn:hover span:after {
+    opacity: 4;
+    right: 0;
+}
 
 /*customPlayer*/
 

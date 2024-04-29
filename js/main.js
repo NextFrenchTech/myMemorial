@@ -282,7 +282,39 @@ function makePt(x, y) {
             .to('.hero', { autoAlpha: 1 }, 0.5); // Animation de l'apparition de l'élément .hero
     };
 }
+    document.addEventListener("DOMContentLoaded", function() {
+        // Sélection du bouton de téléchargement
+        const downloadBtn = document.getElementById("download-btn");
 
+        // Gestion du clic sur le bouton de téléchargement
+        downloadBtn.addEventListener("click", function() {
+            // Sélection de l'image
+            const image = document.querySelector(".hero image");
+
+            // Création d'un élément <a> pour télécharger l'image
+            const link = document.createElement('a');
+            link.href = image.getAttribute('href'); // URL de l'image à télécharger
+            link.download = 'image'; // Nom du fichier à télécharger
+
+            // Simuler un clic sur le lien pour déclencher le téléchargement
+            link.click();
+        });
+    });
+        document.addEventListener("DOMContentLoaded", function() {
+        var images = document.querySelectorAll(".hero image"); // Sélectionnez toutes les images
+        images.forEach(function(image) {
+            image.addEventListener("click", function() {
+                var downloadBtn = document.getElementById("download-btn");
+                downloadBtn.style.display = "block"; // Afficher le bouton
+                var closeButton = document.querySelector(".close");
+                closeButton.addEventListener("click", function() {
+                    downloadBtn.style.display = "none"; // Masquer le bouton
+                });
+              });
+                    // JavaScript pour faire disparaître le bouton Télécharger l'image lors du clic sur l'élément de fermeture
+
+        });
+    });
 // Fermeture de l'élément .hero
 close.onpointerup = (e) => {
     gsap.timeline()
