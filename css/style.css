@@ -273,10 +273,10 @@ svg {
     }
        
     #download-btn span {
-        transition: 0.1s;
+        transition: 0.25s;
     }
     
     #download-btn span:after {
-        transition: 0.1s;
+        transition: 0.5s;
     }
 }
