@@ -274,7 +274,7 @@ svg {
        
     #download-btn span {
         transition: 0s;
-        top: -15px;
+        top: -25px;
     }
     
     #download-btn span:after {
