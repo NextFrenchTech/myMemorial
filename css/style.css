@@ -269,7 +269,7 @@ svg {
         display: none;
     }
     #download-btn {
-        transition: all 0.25s;
+        transition: all 0s;
     }
        
     #download-btn span {
