@@ -270,6 +270,7 @@ svg {
     }
     #download-btn {
         transition: all 0s;
+        color: wheat;
     }
        
     #download-btn span {
