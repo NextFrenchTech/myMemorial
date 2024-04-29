@@ -268,7 +268,15 @@ svg {
     .tip {
         display: none;
     }
-    #download-btn, #download-btn span, #download-btn span:after {
+    #download-btn {
+        transition: all 0.5s;
+    }
+       
+    #download-btn span {
+        transition: 0.1s;
+    }
+    
+    #download-btn span:after {
         transition: 0.1s;
     }
 }
