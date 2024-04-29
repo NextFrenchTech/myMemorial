@@ -161,7 +161,7 @@ function playNext() {
 playNext();
 
 
-/*downloadActive*/
+/*downloadSoundActive*/
 
 // Récupérer tous les éléments audio de votre page
 const audioElements = document.querySelectorAll('audio');
@@ -282,39 +282,7 @@ function makePt(x, y) {
             .to('.hero', { autoAlpha: 1 }, 0.5); // Animation de l'apparition de l'élément .hero
     };
 }
-    document.addEventListener("DOMContentLoaded", function() {
-        // Sélection du bouton de téléchargement
-        const downloadBtn = document.getElementById("download-btn");
 
-        // Gestion du clic sur le bouton de téléchargement
-        downloadBtn.addEventListener("click", function() {
-            // Sélection de l'image
-            const image = document.querySelector(".hero image");
-
-            // Création d'un élément <a> pour télécharger l'image
-            const link = document.createElement('a');
-            link.href = image.getAttribute('href'); // URL de l'image à télécharger
-            link.download = 'image'; // Nom du fichier à télécharger
-
-            // Simuler un clic sur le lien pour déclencher le téléchargement
-            link.click();
-        });
-    });
-        document.addEventListener("DOMContentLoaded", function() {
-        var images = document.querySelectorAll(".hero image"); // Sélectionnez toutes les images
-        images.forEach(function(image) {
-            image.addEventListener("click", function() {
-                var downloadBtn = document.getElementById("download-btn");
-                downloadBtn.style.display = "block"; // Afficher le bouton
-                var closeButton = document.querySelector(".close");
-                closeButton.addEventListener("click", function() {
-                    downloadBtn.style.display = "none"; // Masquer le bouton
-                });
-              });
-                    // JavaScript pour faire disparaître le bouton Télécharger l'image lors du clic sur l'élément de fermeture
-
-        });
-    });
 // Fermeture de l'élément .hero
 close.onpointerup = (e) => {
     gsap.timeline()
@@ -352,5 +320,47 @@ gsap.to(mPos, { duration: 1, ease: 'expo.in', x: 50, y: 50, onUpdate: () => { pt
 // Initialisation de l'infobulle et du bouton de fermeture
 gsap.set('.tip', { scale: 0, transformOrigin: '0 15px', pointerEvents: 'none' }); // Initialisation de l'infobulle
 gsap.set('.tip *', { y: -50, xPercent: -50 }); // Positionnement du contenu de l'infobulle
-gsap.set('.close', { x: 90, y: 5 }); // Positionnement du bouton de fermeture
+gsap.set('.close', { x: 90, y: 2.5 }); // Positionnement du bouton de fermeture
 gsap.set('.hero', { autoAlpha: 0 }); // Initialisation de l'élément .hero
+
+
+/*downloadPictureActive*/
+
+// Activation/Désactivation du bouton de télechargement dynamique du contenu de la visionneuse
+document.addEventListener("DOMContentLoaded", function() {
+    var images = document.querySelectorAll(".hero image"); // Sélectionnez toutes les images
+    images.forEach(function(image) {
+        image.addEventListener("click", function() {
+    
+            // JavaScript pour faire apparaître le bouton lors du clic sur une image
+            var downloadBtn = document.getElementById("download-btn");
+            downloadBtn.style.display = "block"; // Afficher le bouton
+            
+            // JavaScript pour faire disparaître le bouton lors du clic sur l'élément de fermeture
+            var closeButton = document.querySelector(".close");
+            closeButton.addEventListener("click", function() {
+                downloadBtn.style.display = "none"; // Masquer le bouton
+                });
+            });
+        });
+    });
+
+// Téléchargement dynamique du contenu de la visionneuse
+document.addEventListener("DOMContentLoaded", function() {
+    // Sélection du bouton de téléchargement
+    const downloadBtn = document.getElementById("download-btn");
+
+    // Gestion du clic sur le bouton de téléchargement
+    downloadBtn.addEventListener("click", function() {
+        // Sélection de l'image
+        const image = document.querySelector(".hero image");
+
+        // Création d'un élément <a> pour télécharger l'image
+        const link = document.createElement('a');
+        link.href = image.getAttribute('href'); // URL de l'image à télécharger
+        link.download = 'image'; // Nom du fichier à télécharger
+
+        // Simuler un clic sur le lien pour déclencher le téléchargement
+        link.click();
+    });
+});
