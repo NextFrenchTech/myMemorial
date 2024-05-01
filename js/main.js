@@ -1,37 +1,37 @@
-/*audioPlaylist*/
+/* audioPlaylist */
 
-/*autoPlayMobile/Tablet*/
+/* autoPlayMobile/Tablet */
 
-var audioPlayed = false; // Variable pour suivre si l'audio a déjà été lancé
+let audioPlayed = false; // Utilisation de let au lieu de var
 
-// Fonction pour déclencher la lecture audio
-function playAudio() {
-    var audio = document.getElementById("audio");
+// Fonction fléchée pour déclencher la lecture audio
+const playAudio = () => {
+    const audio = document.getElementById("audio");
     if (audio && !audioPlayed) {
         audio.play(); // Lancer la lecture audio
         audioPlayed = true; // Mettre à jour le statut de lecture
     }
-}
+};
 
 // Ajouter un événement tactile pour détecter la première interaction de l'utilisateur
 document.body.addEventListener('touchstart', playAudio);
 
 
-/*customName*/
+/* customName */
 
 const audio = document.getElementById("audio");
+const nameElement = document.querySelector(".name"); // Stocker l'élément DOM
 
 // Mettre à jour le titre en cours de lecture
-function updateCurrentAudioTitle() {
-    const audioSrc = audio.currentSrc; // Obtenez l'URL complète du fichier audio actuel
-    const fileName = audioSrc.split('/').pop(); // Récupérez le nom du fichier à partir de l'URL
-    const title = fileName.replace(/\.[^/.]+$/, ""); // Retirez l'extension du fichier
+const updateCurrentAudioTitle = () => {
+    if (audio && nameElement) {
+        const audioSrc = audio.currentSrc; // Obtenez l'URL complète du fichier audio actuel
+        const fileName = audioSrc.split('/').pop(); // Récupérez le nom du fichier à partir de l'URL
+        const title = fileName.replace(/\.[^/.]+$/, ""); // Retirez l'extension du fichier
 
-    const nameElement = document.querySelector(".name"); // Sélectionnez l'élément avec la classe "name"
-    if (nameElement && title) {
         nameElement.textContent = title; // Mettez à jour le contenu de l'élément avec le titre
     }
-}
+};
 
 // Événement lorsque le chargement de la piste audio est terminé
 audio.addEventListener("loadeddata", updateCurrentAudioTitle);
@@ -43,105 +43,103 @@ audio.addEventListener("ended", updateCurrentAudioTitle);
 updateCurrentAudioTitle();
 
 
-/*customControls*/
+/* customControls */
 
 const audioPlayer = document.querySelector(".audio-player");
 
-console.dir(audio);
-
 audio.addEventListener(
-  "loadeddata",
-  () => {
-    // Met à jour la durée totale de l'audio lorsqu'il est chargé
-    audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
-      audio.duration
-    );
-    audio.volume = 0.25; // Réglage initial du volume à 25%
-  },
-  false
+    "loadeddata",
+    () => {
+        // Met à jour la durée totale de l'audio lorsqu'il est chargé
+        audioPlayer.querySelector(".time .length").textContent = getTimeCodeFromNum(
+            audio.duration
+        );
+        audio.volume = 0.25; // Réglage initial du volume à 25%
+    },
+    false
 );
 
 // Cliquez sur la barre de temps pour avancer/reculer
 const timeline = audioPlayer.querySelector(".timeline");
 timeline.addEventListener("click", e => {
-  const timelineWidth = window.getComputedStyle(timeline).width;
-  const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
-  audio.currentTime = timeToSeek;
+    const timelineWidth = window.getComputedStyle(timeline).width;
+    const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
+    audio.currentTime = timeToSeek;
 }, false);
 
 // Cliquez sur le curseur de volume pour changer le volume
 const volumeSlider = audioPlayer.querySelector(".controls .volume-slider");
 volumeSlider.addEventListener('click', e => {
-  const sliderWidth = window.getComputedStyle(volumeSlider).width;
-  const newVolume = e.offsetX / parseInt(sliderWidth);
-  audio.volume = newVolume;
-  audioPlayer.querySelector(".controls .volume-percentage").style.width = newVolume * 100 + '%';
-}, false)
+    const sliderWidth = window.getComputedStyle(volumeSlider).width;
+    const newVolume = e.offsetX / parseInt(sliderWidth);
+    audio.volume = newVolume;
+    audioPlayer.querySelector(".controls .volume-percentage").style.width = newVolume * 100 + '%';
+}, false);
 
 // Vérifie le pourcentage de l'audio et met à jour le temps en conséquence
 setInterval(() => {
-  const progressBar = audioPlayer.querySelector(".progress");
-  progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
-  audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
-    audio.currentTime
-  );
+    const progressBar = audioPlayer.querySelector(".progress");
+    progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
+    audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(
+        audio.currentTime
+    );
 }, 500);
 
 // Basculer entre la lecture et la pause lorsque le bouton est cliqué
 const playBtn = audioPlayer.querySelector(".controls .toggle-play");
 playBtn.addEventListener(
-  "click",
-  () => {
-    if (audio.paused) {
-      playBtn.classList.remove("play");
-      playBtn.classList.add("pause");
-      audio.play();
-    } else {
-      playBtn.classList.remove("pause");
-      playBtn.classList.add("play");
-      audio.pause();
-    }
-  },
-  false
+    "click",
+    () => {
+        if (audio.paused) {
+            playBtn.classList.remove("play");
+            playBtn.classList.add("pause");
+            audio.play();
+        } else {
+            playBtn.classList.remove("pause");
+            playBtn.classList.add("play");
+            audio.pause();
+        }
+    },
+    false
 );
 
 // Cliquez sur le bouton de volume pour activer/désactiver le son
 audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
-  const volumeEl = audioPlayer.querySelector(".volume-container .volume");
-  audio.muted = !audio.muted;
-  if (audio.muted) {
-    volumeEl.classList.remove("icono-volumeMedium");
-    volumeEl.classList.add("icono-volumeMute");
-  } else {
-    volumeEl.classList.add("icono-volumeMedium");
-    volumeEl.classList.remove("icono-volumeMute");
-  }
+    const volumeEl = audioPlayer.querySelector(".volume-container .volume");
+    audio.muted = !audio.muted;
+    if (audio.muted) {
+        volumeEl.classList.remove("icono-volumeMedium");
+        volumeEl.classList.add("icono-volumeMute");
+    } else {
+        volumeEl.classList.add("icono-volumeMedium");
+        volumeEl.classList.remove("icono-volumeMute");
+    }
 });
 
 // Convertir 1 seconde en format 0:01
 function getTimeCodeFromNum(num) {
-  let seconds = parseInt(num);
-  let minutes = parseInt(seconds / 60);
-  seconds -= minutes * 60;
-  const hours = parseInt(minutes / 60);
-  minutes -= hours * 60;
+    let seconds = parseInt(num);
+    let minutes = parseInt(seconds / 60);
+    seconds -= minutes * 60;
+    const hours = parseInt(minutes / 60);
+    minutes -= hours * 60;
 
-  if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
-  return `${String(hours).padStart(2, 0)}:${minutes}:${String(
-    seconds % 60
-  ).padStart(2, 0)}`;
+    if (hours === 0) return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+    return `${String(hours).padStart(2, 0)}:${minutes}:${String(
+        seconds % 60
+    ).padStart(2, 0)}`;
 }
 
 
-/*autoSwitch*/
+/* autoSwitch */
 
 function playNext() {
-    var audio = document.getElementById('audio');
-    var sources = audio.getElementsByTagName('source');
+    const audio = document.getElementById('audio');
+    const sources = audio.getElementsByTagName('source');
 
     // Recherche de la source actuelle
-    var currentSourceIndex = -1;
-    for (var i = 0; i < sources.length; i++) {
+    let currentSourceIndex = -1;
+    for (let i = 0; i < sources.length; i++) {
         if (sources[i].src === audio.src) {
             currentSourceIndex = i;
             break;
@@ -149,7 +147,7 @@ function playNext() {
     }
 
     // Calcul de l'index de la source suivante
-    var nextSourceIndex = (currentSourceIndex + 1) % sources.length;
+    const nextSourceIndex = (currentSourceIndex + 1) % sources.length;
 
     // Mise à jour de la source audio et lecture
     audio.src = sources[nextSourceIndex].src;
@@ -161,7 +159,7 @@ function playNext() {
 playNext();
 
 
-/*downloadSoundActive*/
+/* downloadSoundActive */
 
 // Récupérer tous les éléments audio de votre page
 const audioElements = document.querySelectorAll('audio');
@@ -176,45 +174,17 @@ audioElements.forEach(audio => {
 });
 
 
-/*youtubePlaylist*/
+/* youtubePlaylist */
 
-/*// Fonction appelée lorsque l'API YouTube est prête
-function onYouTubeIframeAPIReady() {
-    // Créer un lecteur
-    var player = new YT.Player('player', {
-        height: '0', // Pour masquer le lecteur
-        width: '0', // Pour masquer le lecteur
-        playerVars: {
-            'autoplay': 1, // Lecture automatique
-            'loop': 1, // Lecture en boucle
-            'playsinline': 1, // Lecture inline (pour iOS)
-            'showinfo': 0, // Information sur la vidéo cachées
-            'listType': 'playlist', // Type de liste (playlist)
-            'list': 'YOUR_PLAYLIST_ID' // ID de la playlist
-        },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
+// Les parties relatives à YouTube sont actuellement commentées
 
-// Fonction appelée lorsque le lecteur est prêt
-function onPlayerReady(event) {
-    // Lecture de la bande son de la playlist
-    event.target.setVolume(25); // Réglez le volume à 100 (ou ajustez selon vos préférences)
-    event.target.playVideo(); // Commencez à lire la vidéo
-}*/
+/* visualPlaylist */
 
-
-
-/*visualPlaylist*/
-
-// Sélection des éléments du DOM
-const stage = document.querySelector('.stage'); // Sélection de l'élément avec la classe 'stage'
-const grid = document.querySelector('.grid');   // Sélection de l'élément avec la classe 'grid'
-const close = document.querySelector('.close'); // Sélection de l'élément avec la classe 'close'
-let mPos = { x: 50, y: 50 }; // Position initiale de la souris
-let i = 0; // Compteur d'images
+const stage = document.querySelector('.stage');
+const grid = document.querySelector('.grid');
+const close = document.querySelector('.close');
+let mPos = { x: 50, y: 50 };
+let i = 0;
 
 // Définition des extensions d'image supportées
 const imageExtensions = ['.webp'];
@@ -324,43 +294,41 @@ gsap.set('.close', { x: 93, y: 2 }); // Positionnement du bouton de fermeture
 gsap.set('.hero', { autoAlpha: 0 }); // Initialisation de l'élément .hero
 
 
-/*downloadPictureActive*/
+/* downloadPictureActive */
 
 // Activation/Désactivation du bouton de télechargement dynamique du contenu de la visionneuse
 document.addEventListener("DOMContentLoaded", function() {
-    var images = document.querySelectorAll(".hero image"); // Sélectionnez toutes les images
-    images.forEach(function(image) {
-        image.addEventListener("click", function() {
-    
-            // JavaScript pour faire apparaître le bouton lors du clic sur une image
-            var downloadBtn = document.getElementById("download-btn");
-            downloadBtn.style.display = "block"; // Afficher le bouton
+    // Sélectionnez toutes les images dans l'élément avec la classe "hero"
+    const images = document.querySelectorAll(".hero image");
+    images.forEach(image => {
+        // Ajoutez un gestionnaire d'événement pour chaque image lorsqu'elle est cliquée
+        image.addEventListener("click", () => {
+            // Affichez le bouton de téléchargement lorsqu'une image est cliquée
+            const downloadBtn = document.getElementById("download-btn");
+            downloadBtn.style.display = "block";
             
-            // JavaScript pour faire disparaître le bouton lors du clic sur l'élément de fermeture
-            var closeButton = document.querySelector(".close");
-            closeButton.addEventListener("click", function() {
-                downloadBtn.style.display = "none"; // Masquer le bouton
-                });
+            // Ajoutez un gestionnaire d'événement pour le bouton de fermeture
+            const closeButton = document.querySelector(".close");
+            closeButton.addEventListener("click", () => {
+                // Masquez le bouton de téléchargement lorsque le bouton de fermeture est cliqué
+                downloadBtn.style.display = "none";
             });
         });
     });
 
-// Téléchargement dynamique du contenu de la visionneuse
-document.addEventListener("DOMContentLoaded", function() {
-    // Sélection du bouton de téléchargement
-    const downloadBtn = document.getElementById("download-btn");
-
     // Gestion du clic sur le bouton de téléchargement
-    downloadBtn.addEventListener("click", function() {
-        // Sélection de l'image
+    const downloadBtn = document.getElementById("download-btn");
+    // Téléchargement dynamique du contenu de la visionneuse
+    downloadBtn.addEventListener("click", () => {
+        // Sélectionnez l'image affichée dans l'élément avec la classe "hero"
         const image = document.querySelector(".hero image");
 
-        // Création d'un élément <a> pour télécharger l'image
+        // Créez un lien de téléchargement pour l'image
         const link = document.createElement('a');
-        link.href = image.getAttribute('href'); // URL de l'image à télécharger
-        link.download = 'image'; // Nom du fichier à télécharger
+        link.href = image.getAttribute('href'); // Obtenez l'URL de l'image
+        link.download = 'image'; // Définissez le nom de fichier pour le téléchargement
 
-        // Simuler un clic sur le lien pour déclencher le téléchargement
+        // Simulez un clic sur le lien pour déclencher le téléchargement
         link.click();
     });
 });
