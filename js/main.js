@@ -15,7 +15,6 @@ const playAudio = () => {
 
 // Ajouter un événement tactile pour détecter la première interaction de l'utilisateur
 document.body.addEventListener('touchstart', playAudio);
-document.body.addEventListener('mousemove', playAudio);
 
 
 /* customName */
