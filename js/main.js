@@ -159,7 +159,6 @@ audio.addEventListener("play", () => {
     playBtn.classList.add("pause");
 });
 
-
 // Cliquez sur le bouton de volume pour activer/désactiver le son
 audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
     const volumeEl = audioPlayer.querySelector(".volume-container .volume");
