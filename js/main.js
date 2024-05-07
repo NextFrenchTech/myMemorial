@@ -372,7 +372,7 @@ gsap.to(mPos, { duration: 1, ease: 'expo.in', x: 50, y: 50, onUpdate: () => { pt
 // Initialisation de l'infobulle et du bouton de fermeture
 gsap.set('.tip', { scale: 0, transformOrigin: '0 15px', pointerEvents: 'none' }); // Initialisation de l'infobulle
 gsap.set('.tip *', { y: -50, xPercent: -50 }); // Positionnement du contenu de l'infobulle
-gsap.set('.close', { x: 93, y: 2 }); // Positionnement du bouton de fermeture
+gsap.set('.close', { x: 90, y: 5 }); // Positionnement du bouton de fermeture
 gsap.set('.hero', { autoAlpha: 0 }); // Initialisation de l'élément .hero
 
 
