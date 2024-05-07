@@ -40,12 +40,16 @@ svg {
     margin-right: 12.5%;
     display: flex;
     justify-content: right;
-    color: whitesmoke;
+    color: wheat;
     font-size: 0.75rem;
 }
 
-.information {
+.retour {
     color: whitesmoke;
+}
+
+.information {
+    color: wheat;
     margin: 0 5vw;
     text-align: justify;
 }
@@ -144,13 +148,11 @@ svg {
 #acceptButton {
     background-color: transparent;
     color: whitesmoke;
-
 }
 
 #rejectButton {
     background-color: transparent;
     color: whitesmoke;
-
 }
 
 .audio-player {
@@ -301,7 +303,7 @@ svg {
     .mentionsLegales, .retour {
         margin-top: 0.55%;
         margin-bottom: 0.75%;
-        margin-right: 49%;
+        margin-right: 51%;
     }
     .information {
         margin: 0 25vw;
