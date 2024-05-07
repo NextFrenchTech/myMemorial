@@ -131,6 +131,7 @@ setInterval(() => {
 
 // Basculer entre la lecture et la pause lorsque le bouton est cliqué
 const playBtn = audioPlayer.querySelector(".controls .toggle-play");
+
 playBtn.addEventListener(
     "click",
     () => {
@@ -146,6 +147,18 @@ playBtn.addEventListener(
     },
     false
 );
+
+// Mettre à jour l'icône lorsque l'audio est en pause ou en lecture
+audio.addEventListener("pause", () => {
+    playBtn.classList.remove("pause");
+    playBtn.classList.add("play");
+});
+
+audio.addEventListener("play", () => {
+    playBtn.classList.remove("play");
+    playBtn.classList.add("pause");
+});
+
 
 // Cliquez sur le bouton de volume pour activer/désactiver le son
 audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
