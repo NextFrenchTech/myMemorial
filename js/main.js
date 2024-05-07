@@ -1,20 +1,64 @@
 /* audioPlaylist */
 
-/* autoPlayMobile/Tablet */
+/* autoPlayPopUp */
 
-let audioPlayed = false;
+document.addEventListener("DOMContentLoaded", function() {
+    var popup = document.getElementById("popup");
+    var acceptButton = document.getElementById("acceptButton");
+    var rejectButton = document.getElementById("rejectButton");
+    var audio = document.getElementById("audio");
 
-// Fonction fléchée pour déclencher la lecture audio
-const playAudio = () => {
-    const audio = document.getElementById("audio");
-    if (audio && !audioPlayed) {
-        audio.play(); // Lancer la lecture audio
-        audioPlayed = true; // Mettre à jour le statut de lecture
+    // Vérifier si l'utilisateur a déjà répondu
+    var userResponse = getCookie("userResponse");
+
+    if (userResponse === "accepted") {
+        // Si l'utilisateur a déjà répondu "accepté", masquer la pop-up
+        popup.style.display = "none";
+    } else if (userResponse === "rejected") {
+        // Si l'utilisateur a déjà répondu "rejeté", masquer la pop-up et arrêter la musique
+        popup.style.display = "none";
+        audio.pause(); // Arrêter la musique si elle est en cours de lecture
+    } else {
+        // Afficher la fenêtre pop-up après 1 seconde si l'utilisateur n'a pas encore répondu
+        setTimeout(function() {
+            popup.style.display = "block";
+        }, 1000);
     }
-};
 
-// Ajouter un événement tactile pour détecter la première interaction de l'utilisateur
-document.body.addEventListener('touchstart', playAudio);
+    // Gérer la réponse de l'utilisateur
+    acceptButton.addEventListener("click", function() {
+        popup.style.display = "none";
+        audio.play(); // Démarrer la lecture audio
+        setCookie("userResponse", "accepted"); // Enregistrer la réponse dans un cookie
+    });
+
+    rejectButton.addEventListener("click", function() {
+        popup.style.display = "none";
+        setCookie("userResponse", "rejected"); // Enregistrer la réponse dans un cookie
+    });
+
+    // Fonction pour définir un cookie
+    function setCookie(name, value) {
+        document.cookie = name + "=" + value + ";path=/";
+    }
+
+    // Fonction pour récupérer la valeur d'un cookie
+    function getCookie(name) {
+        var cookieName = name + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var cookieArray = decodedCookie.split(';');
+        for(var i = 0; i < cookieArray.length; i++) {
+            var cookie = cookieArray[i];
+            while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1);
+            }
+            if (cookie.indexOf(cookieName) === 0) {
+                return cookie.substring(cookieName.length, cookie.length);
+            }
+        }
+        return "";
+    }
+});
 
 
 /* customName */

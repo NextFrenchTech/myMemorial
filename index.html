@@ -35,7 +35,17 @@
         <path d="M0,20 30,20 15,35z"/>
     </svg>
 
-    <audio id="audio" autoplay playsinline onended="playNext()">
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Souhaitez vous lancer l'immersion auditive ?</p>
+            <button id="acceptButton">Oui</button>
+            <button id="rejectButton">Non</button>
+            <br>
+            <q>Nous utilisons des cookies pour améliorer votre expérience sur notre site.<br>En continuant, vous acceptez son utilisation.</q>
+        </div>
+    </div>
+
+    <audio id="audio" autoplay="false" preload="auto" playsinline onended="playNext()">
         <source src="assets/audio/Lau_teilatu.mp3" type="audio/mpeg">
         <source src="assets/audio/Agure_zahar.mp3" type="audio/mpeg">
         <source src="assets/audio/Azken_txanpa.mp3" type="audio/mpeg">
