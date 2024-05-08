@@ -45,7 +45,7 @@ g.hero, g.close {
     width: 100vw;
     margin-top: 1.5%;
     margin-bottom: 2.5%;
-    margin-right: 12.5%;
+    margin-right: 7.5%;
     display: flex;
     justify-content: right;
     color: wheat;
@@ -324,14 +324,10 @@ g.hero, g.close {
         display: none;
     }
     #download-picture {
-        top: 80%;
+        top: 79%;
         transition: all 0s;
     }
-    #download-picture span {
-        transition: 0s;
-        top: -25px;
-    }
-    #download-picture span:after {
+    #download-picture span, #download-picture span:after {
         transition: 0s;
     }
 }
