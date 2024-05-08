@@ -19,6 +19,14 @@ svg {
     height: 100vh;
 }
 
+g {
+    cursor: zoom-in;
+}
+
+g.hero, g.close {
+    cursor: pointer;
+}
+
 .tip {
     position: absolute;
     overflow: visible;
@@ -54,7 +62,7 @@ svg {
     text-align: justify;
 }
     
-#download-btn {
+#download-picture {
     display: none;
     border: none;
     background: black;
@@ -68,14 +76,14 @@ svg {
     padding: 0;
 }
    
-#download-btn span {
+#download-picture span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-#download-btn span:after {
+#download-picture span:after {
     content: 'ce Souvenir';
     position: absolute;
     opacity: 0;
@@ -84,11 +92,11 @@ svg {
     transition: 0.5s;
 }
 
-#download-btn:hover span {
+#download-picture:hover span {
     padding-right: 5em;
 }
 
-#download-btn:hover span:after {
+#download-picture:hover span:after {
     opacity: 4;
     right: 0;
 }
@@ -314,14 +322,14 @@ svg {
     .tip {
         display: none;
     }
-    #download-btn {
+    #download-picture {
         transition: all 0s;
     }
-    #download-btn span {
+    #download-picture span {
         transition: 0s;
         top: -25px;
     }
-    #download-btn span:after {
+    #download-picture span:after {
         transition: 0s;
     }
 }

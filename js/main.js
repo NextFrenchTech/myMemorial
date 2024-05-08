@@ -380,28 +380,28 @@ gsap.set('.hero', { autoAlpha: 0 }); // Initialisation de l'élément .hero
 
 // Activation/Désactivation du bouton de télechargement dynamique du contenu de la visionneuse
 document.addEventListener("DOMContentLoaded", function() {
-    // Sélectionnez toutes les images dans l'élément
-    const images = document.querySelectorAll("image");
+    // Sélectionnez toutes les images dans l'élément avec la classe "hero"
+    const images = document.querySelectorAll(".hero image");
     images.forEach(image => {
         // Ajoutez un gestionnaire d'événement pour chaque image lorsqu'elle est cliquée
         image.addEventListener("click", () => {
             // Affichez le bouton de téléchargement lorsqu'une image est cliquée
-            const downloadBtn = document.getElementById("download-btn");
-            downloadBtn.style.display = "block";
+            const downloadPicture = document.getElementById("download-picture");
+            downloadPicture.style.display = "block";
             
             // Ajoutez un gestionnaire d'événement pour le bouton de fermeture
             const closeButton = document.querySelector(".close");
             closeButton.addEventListener("click", () => {
                 // Masquez le bouton de téléchargement lorsque le bouton de fermeture est cliqué
-                downloadBtn.style.display = "none";
+                downloadPicture.style.display = "none";
             });
         });
     });
 
     // Gestion du clic sur le bouton de téléchargement
-    const downloadBtn = document.getElementById("download-btn");
+    const downloadPicture = document.getElementById("download-picture");
     // Téléchargement dynamique du contenu de la visionneuse
-    downloadBtn.addEventListener("click", () => {
+    downloadPicture.addEventListener("click", () => {
         // Sélectionnez l'image affichée dans l'élément avec la classe "hero"
         const image = document.querySelector(".hero image");
 
