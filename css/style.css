@@ -324,7 +324,7 @@ g.hero, g.close {
         display: none;
     }
     #download-picture {
-        top: 74%;
+        top: 80%;
         transition: all 0s;
     }
     #download-picture span {
