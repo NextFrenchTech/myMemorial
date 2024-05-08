@@ -53,7 +53,8 @@ g.hero, g.close {
 }
 
 .retour {
-    color: whitesmoke;
+    color: gray;
+    margin-right: 9.5%;
 }
 
 .information {
@@ -296,23 +297,6 @@ g.hero, g.close {
     width: 120px;
 }
 
-/*responsiveDesktop*/
-
-@media (min-width: 769px) {
-    .audio-player {
-        margin-bottom: 0px;
-        width: 50%;
-    }
-    .mentionsLegales, .retour {
-        margin-top: 0.55%;
-        margin-bottom: 0.75%;
-        margin-right: 51%;
-    }
-    .information {
-        margin: 0 25vw;
-        text-align: center;
-    }
-}
 
 /*responsiveMobile/Tablet*/
 
@@ -330,4 +314,25 @@ g.hero, g.close {
     #download-picture span, #download-picture span:after {
         transition: 0s;
     }
+}
+
+
+
+/*responsiveDesktop*/
+
+@media (min-width: 769px) {
+    .audio-player {
+        margin-bottom: 0px;
+        width: 50%;
+    }
+    .information {
+        margin: 0 25vw;
+        text-align: center;
+    }
+    .mentionsLegales, .retour {
+        margin-top: 0.55%;
+        margin-bottom: 0.75%;
+        margin-right: 52%;
+    }
+
 }
