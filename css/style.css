@@ -287,12 +287,6 @@ svg {
     width: 120px;
 }
 
-.download-icon {
-    color: whitesmoke;
-    font-size: 20px;
-    margin-top: 5px;
-}
-
 /*responsiveDesktop*/
 
 @media (min-width: 769px) {
