@@ -74,12 +74,13 @@ g.hero, g.close {
     cursor: pointer;
     margin: 0;
     padding: 0;
+    position: fixed;
+    top: 85%;
 }
    
 #download-picture span {
     cursor: pointer;
     display: inline-block;
-    position: relative;
     transition: 0.5s;
 }
 
@@ -323,6 +324,7 @@ g.hero, g.close {
         display: none;
     }
     #download-picture {
+        top: 74%;
         transition: all 0s;
     }
     #download-picture span {
