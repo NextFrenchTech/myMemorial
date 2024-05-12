@@ -259,6 +259,44 @@ function onPlayerReady(event) {
     event.target.playVideo(); // Commencez à lire la vidéo
 }*/
 
+/* downloadPictureActive */
+
+// Activation/Désactivation du bouton de télechargement dynamique du contenu de la visionneuse
+document.addEventListener("DOMContentLoaded", function() {
+    // Sélectionnez toutes les images dans l'élément avec la classe "hero"
+    const images = document.querySelectorAll(".hero image");
+    images.forEach(image => {
+        // Ajoutez un gestionnaire d'événement pour chaque image lorsqu'elle est cliquée
+        image.addEventListener("click", () => {
+            // Affichez le bouton de téléchargement lorsqu'une image est cliquée
+            const downloadPicture = document.getElementById("download-picture");
+            downloadPicture.style.display = "block";
+            
+            // Ajoutez un gestionnaire d'événement pour le bouton de fermeture
+            const closeButton = document.querySelector(".close");
+            closeButton.addEventListener("click", () => {
+                // Masquez le bouton de téléchargement lorsque le bouton de fermeture est cliqué
+                downloadPicture.style.display = "none";
+            });
+        });
+    });
+
+    // Gestion du clic sur le bouton de téléchargement
+    const downloadPicture = document.getElementById("download-picture");
+    // Téléchargement dynamique du contenu de la visionneuse
+    downloadPicture.addEventListener("click", () => {
+        // Sélectionnez l'image affichée dans l'élément avec la classe "hero"
+        const image = document.querySelector(".hero image");
+
+        // Créez un lien de téléchargement pour l'image
+        const link = document.createElement('a');
+        link.href = image.getAttribute('href'); // Obtenez l'URL de l'image
+        link.download = 'image'; // Définissez le nom de fichier pour le téléchargement
+
+        // Simulez un clic sur le lien pour déclencher le téléchargement
+        link.click();
+    });
+});
 
 /* visualPlaylist */
 
@@ -374,43 +412,3 @@ gsap.set('.tip', { scale: 0, transformOrigin: '0 15px', pointerEvents: 'none' })
 gsap.set('.tip *', { y: -50, xPercent: -50 }); // Positionnement du contenu de l'infobulle
 gsap.set('.close', { x: 90, y: 5 }); // Positionnement du bouton de fermeture
 gsap.set('.hero', { autoAlpha: 0 }); // Initialisation de l'élément .hero
-
-
-/* downloadPictureActive */
-
-// Activation/Désactivation du bouton de télechargement dynamique du contenu de la visionneuse
-document.addEventListener("DOMContentLoaded", function() {
-    // Sélectionnez toutes les images dans l'élément avec la classe "hero"
-    const images = document.querySelectorAll(".hero image");
-    images.forEach(image => {
-        // Ajoutez un gestionnaire d'événement pour chaque image lorsqu'elle est cliquée
-        image.addEventListener("click", () => {
-            // Affichez le bouton de téléchargement lorsqu'une image est cliquée
-            const downloadPicture = document.getElementById("download-picture");
-            downloadPicture.style.display = "block";
-            
-            // Ajoutez un gestionnaire d'événement pour le bouton de fermeture
-            const closeButton = document.querySelector(".close");
-            closeButton.addEventListener("click", () => {
-                // Masquez le bouton de téléchargement lorsque le bouton de fermeture est cliqué
-                downloadPicture.style.display = "none";
-            });
-        });
-    });
-
-    // Gestion du clic sur le bouton de téléchargement
-    const downloadPicture = document.getElementById("download-picture");
-    // Téléchargement dynamique du contenu de la visionneuse
-    downloadPicture.addEventListener("click", () => {
-        // Sélectionnez l'image affichée dans l'élément avec la classe "hero"
-        const image = document.querySelector(".hero image");
-
-        // Créez un lien de téléchargement pour l'image
-        const link = document.createElement('a');
-        link.href = image.getAttribute('href'); // Obtenez l'URL de l'image
-        link.download = 'image'; // Définissez le nom de fichier pour le téléchargement
-
-        // Simulez un clic sur le lien pour déclencher le téléchargement
-        link.click();
-    });
-});
