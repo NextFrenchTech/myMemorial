@@ -390,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function() {
             downloadPicture.style.display = "block";
             
             // Ajoutez un gestionnaire d'événement pour le bouton de fermeture
-            const closeButton = document.querySelector(".hero .close");
+            const closeButton = document.querySelector(".close");
             closeButton.addEventListener("click", () => {
                 // Masquez le bouton de téléchargement lorsque le bouton de fermeture est cliqué
                 downloadPicture.style.display = "none";
