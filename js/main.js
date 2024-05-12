@@ -381,7 +381,7 @@ gsap.set('.hero', { autoAlpha: 0 }); // Initialisation de l'élément .hero
 // Activation/Désactivation du bouton de télechargement dynamique du contenu de la visionneuse
 document.addEventListener("DOMContentLoaded", function() {
     // Sélectionnez toutes les images dans l'élément avec la classe "hero"
-    const images = document.querySelectorAll(".hero image");
+    const images = document.querySelectorAll("image");
     images.forEach(image => {
         // Ajoutez un gestionnaire d'événement pour chaque image lorsqu'elle est cliquée
         image.addEventListener("click", () => {
